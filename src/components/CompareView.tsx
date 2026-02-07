@@ -1,10 +1,9 @@
-import { useState, useRef, useMemo } from 'react';
-import { Send, Square, BookOpen, GitCompareArrows } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Send, Square, GitCompareArrows } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
 import type { Message, CompareChat } from '../types';
 import { theologians, getTheologian } from '../data/theologians';
 import { streamTheologianResponse } from '../api/claude';
-import { StreamingBubble, MessageBubble } from './MessageBubble';
 import { loadCompareChats, saveCompareChats } from '../utils/storage';
 
 interface CompareViewProps {
@@ -18,7 +17,7 @@ export function CompareView({ apiKey }: CompareViewProps) {
   const [activeCompare, setActiveCompare] = useState<CompareChat | null>(null);
   const [streamingStates, setStreamingStates] = useState<Record<string, { content: string; done: boolean }>>({});
   const [isComparing, setIsComparing] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [_error, setError] = useState<string | null>(null);
   const abortRefs = useRef<Record<string, AbortController>>({});
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -129,11 +128,6 @@ export function CompareView({ apiKey }: CompareViewProps) {
       handleCompare();
     }
   };
-
-  const allDone = useMemo(
-    () => Object.values(streamingStates).every((s) => s.done),
-    [streamingStates]
-  );
 
   return (
     <div className="flex-1 flex flex-col bg-navy-900">

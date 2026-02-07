@@ -1,4 +1,4 @@
-import { Plus, Trash2, MessageSquare } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import type { Chat } from '../types';
 import { theologians, getTheologian } from '../data/theologians';
 

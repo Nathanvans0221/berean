@@ -1,4 +1,4 @@
-import { BookOpen, GitCompareArrows, Settings, Share2 } from 'lucide-react';
+import { BookOpen, GitCompareArrows, Settings } from 'lucide-react';
 import type { ViewMode } from '../types';
 
 interface HeaderProps {
