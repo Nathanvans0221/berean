@@ -45,7 +45,7 @@ ADDITIONAL INSTRUCTIONS FOR ALL RESPONSES:
         apiKey,
         system: systemPrompt,
         messages: apiMessages,
-        model: 'claude-sonnet-4-5-20250514',
+        model: 'claude-sonnet-4-5-20250929',
       }),
       signal,
     });
